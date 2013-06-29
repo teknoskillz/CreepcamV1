@@ -201,21 +201,13 @@ void(entity c) CC_ChangeToAnyCam =
 
 void() CC_WaitingCamThink = 
 {
-	local entity pos;
-	local string type;
-	local float j;
-	j = random ();
-	if (j > 0.66)
-	type = "info_player_deathmatch";
-	else if (j > 0.33)
-	type = "info_intermission";
-	else
-	type = "info_teleport_destination";
+
+local entity pos;
 	self.state = self.state + 1;
 	if (self.state == 1)
 	{
-		pos = find(self.movetarget, classname, type);
-		if (pos.classname != type)
+		pos = find(self.movetarget, classname, "info_intermission");
+		if (pos.classname != "info_intermission")
 		{
 			pos = find(world, classname, "info_intermission");
 		}
