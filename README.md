@@ -12,4 +12,4 @@ Creepcam Version 1.1B5 Original Source. Courtesy of Jeff Preshing.
    
    
 Source code for original Creepcam chase cam used in Quake. Embedded in original progs.dat type structure.
-Compiles with some warnings in compiler, most are easilly fixed. Further Installation instructions hopefully to follow here soon.
+Compiles with some warnings in compiler, most are easilly fixed. Further Installation instructions located in install.txt

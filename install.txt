@@ -1,0 +1,148 @@
+======================================
+Creepcam [ Version 1.1B5 ] 
+Original Source: Courtesy of Jeff Preshing
+ Porting for mods by: Cobalt & Slotzero
+ Format for this file based on Frikbot/FBX install.txt
+======================================
+
+This program is in the Public Domain. The crack legal
+team would like to add:
+
+THIS SOFTWARE DESIGNATED: "AS IS"  .............
+ AND MAKES NO WARRANTY, EXPRESS OR IMPLIED, AS TO THE
+ACCURACY, CAPABILITY, EFFICIENCY, MERCHANTABILITY, OR
+FUNCTIONING OF THIS SOFTWARE AND/OR DOCUMENTATION.
+ IN NO EVENT WILL ANY PERSON BE LIABLE FOR ANY
+GENERAL, CONSEQUENTIAL, INDIRECT, INCIDENTAL,
+EXEMPLARY, OR SPECIAL DAMAGES, EVEN IF SUCH PERSONS
+HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES, IRRESPECTIVE OF THE CAUSE OF SUCH DAMAGES. 
+
+
+The export from the United States or the subsequent
+reexport of this software is subject to compliance
+with United States export control and munitions
+control restrictions. You agree that in the event you
+seek to export this software, you assume full
+responsibility for obtaining all necessary export
+licenses and approvals and for assuring compliance
+with applicable reexport restrictions. 
+
+Any reproduction of this software must contain
+this notice in its entirety. 
+
+==========================================
+These installation instructions were designed using Darkplaces
+Quake as the main service engine. Build date of 2012 or later. 
+This port Does NOT include match mode system.
+==========================================
+---------------------------------------------
+To install on a new mod, do all this:
+---------------------------------------------
+
+Place all included files >
+( creepmov.qc, creepswc.qc, creeputl.qc, creephks.qc)
+ in a subdirectory of your choosing in the directory of your -game mod
+that corresponds to your source folder. 
+
+* Add the following lines to progs.src right after the subs.qc line,
+or corresponding location where subs.qc would normally be in respect with the 
+mod you are porting into.
+
+creepmov.qc
+creepswc.qc
+creeputl.qc
+creephks.qc
+
+----------------------------------------------------------------------------
+*This may or MAY NOT be necessary depending on your mod if you already have
+an active anglemod () float routine.
+
+ In the file creepmov.qc, comment out or delete this line:
+
+float (float v) anglemod; 
+
+...and below it paste this code:
+
+float(float v) anglemod =
+{
+	while (v >= 360)
+	{
+		v = v - 360;
+	}
+	while (v < 0)
+	{
+		v = v + 360;
+	}
+	return v;
+};
+----------------------------------------------------------------------------
+
+
+
+
+
+----------------------------------------------------------------------------
+* Add this line to worldspawn () in world.qc at the very bottom
+CC_WorldSpawn();
+
+----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+* Add this line to the very top of ClientConnect () in client.qc
+
+void() ClientConnect = 
+{
+	if (CC_ClientConnect()) return;
+	
+
+----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+* Add this line to the very top of ClientDisconnect () in client.qc
+
+void() ClientDisconnect = 
+{
+	CC_ClientDisconnect();
+----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+* Add this line to the very top of PutClientInServer () in client.qc
+
+void() PutClientInServer = 
+{
+	if (CC_PutClientInServer())  return;
+	
+
+----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+* Add this line to PlayerPreThink in client.qc at the very top,
+below the intermission references.
+
+	if (intermission_running)
+	{
+		IntermissionThink();
+		return;
+	}
+	if (self.camtype >= 0) return;
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+* Add this line to PlayerPostThink in client.qc at the very top.
+
+if (CC_PlayerPostThink()) return;
+
+----------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------
+* Add these following lines to ClientObituary () in client.qc
+
+
+
+
+
