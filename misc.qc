@@ -129,7 +129,7 @@ void() misc_fireball =
 	self.think = fire_fly;
 	if (!(self.speed))
 	{
-		self.speed == 1000;
+		self.speed = 1000;
 	}
 };
 
@@ -422,7 +422,7 @@ void() func_illusionary =
 	self.movetype = MOVETYPE_NONE;
 	self.solid = SOLID_NOT;
 	setmodel(self, self.model);
-	makestatic();
+	makestatic(self);
 };
 
 void() func_episodegate = 

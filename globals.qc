@@ -12,10 +12,10 @@ float matchtimer; //timer used to time match after timelimit set to 0
 float finale;  //set to true after finale messages is displayed
 
 .float ready;  //flag that we are in ready mode for matchmode 1 & 2
-.float db_frags, db_kills, db_suicides, db_deaths;
-.float kill;
+.float db_kills, db_suicides, db_deaths;
+// .float kill;
 
-.float team_number, num_players, pant_color;
+.float num_players;
 
 .float oldteam; //store team value to compare with current team value
 

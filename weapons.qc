@@ -61,7 +61,7 @@ vector() wall_velocity =
 	vel = normalize(vel + v_up * (random() - TRACE_PAUSE) + v_right * (random() - TRACE_PAUSE));
 	vel = vel + FL_SWIM * trace_plane_normal;
 	vel = vel * 200;
-	return vel_x;
+	return vel;
 };
 
 void(vector org, vector vel) SpawnMeatSpray = 

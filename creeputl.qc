@@ -174,7 +174,7 @@ void(string s) CC_StuffToAllCams =
 {
 	local entity c;
 	c = world;
-	while (c = find(c, classname, "camera"))
+	while (c = find(c, classname, "camera"))  // this ought to flag as a compile warning, but I believe its ok?
 	{
 		stuffcmd(c, s);
 	}

@@ -103,7 +103,7 @@ float() CC_ClientConnect =
 //SJB
    else
       numplayers = numplayers + 1;
-
+return 0;
 };
 
 void() CC_ClientDisconnect = 

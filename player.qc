@@ -581,7 +581,7 @@ vector(float dm) VelocityForDamage =
 			v = v * MOVETYPE_BOUNCE;
 		}
 	}
-	return v_x;
+	return v;
 };
 
 void(string gibname, float dm) ThrowGib = 

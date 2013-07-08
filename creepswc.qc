@@ -431,7 +431,7 @@ void() CC_RequestCam =
 {
 	if (self.camtype > 0)
 	{
-		return 1;
+		return;
 	}
 //SJB
    if(matchmode == 1 && self.ready == TRUE)
@@ -448,7 +448,7 @@ void() CC_RequestCam =
 	{
 		stuffcmd(self, "bf\n");
 		CC_LongMessage(self, 0, "Sorry, this server will not allow\nany more spectators.");
-		return 0;
+		return;
 	}
 	bprint(self.netname);
 	bprint(" became a spectator\n");
@@ -462,7 +462,7 @@ void() CC_RequestCam =
 
 	self.think = CC_BeginIntroCam;
 	self.nextthink = time;
-	return 1;
+
 };
 
 void(float cmap) CC_SwitchToPlayer = 

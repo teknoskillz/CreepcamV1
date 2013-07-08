@@ -155,6 +155,7 @@ entity() FindIntermission =
 		return spot;
 	}
 	objerror("FindIntermission: no spot");
+	
 };
 
 string nextmap /* = "" */;
@@ -413,10 +414,14 @@ void() ClientKill =
 	CC_AntiSpamAction(self);
 };
 
+// Gives compile error, function not called anywhere, probably intended for future dev.
+/*
 void(vector v) CheckSpawnPoint = 
 {
 	return 0;
 };
+
+*/
 
 entity() SelectSpawnPoint = 
 {

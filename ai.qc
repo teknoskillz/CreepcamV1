@@ -268,7 +268,7 @@ float() FindTarget =
 		client = sight_entity;
 		if (client.enemy == self.enemy)
 		{
-			return;
+			return 0;
 		}
 	}
 	else
@@ -429,7 +429,7 @@ float() CheckAnyAttack =
 {
 	if (!enemy_vis)
 	{
-		return;
+		return 0;
 	}
 	if (self.classname == "monster_army")
 	{
