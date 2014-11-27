@@ -68,7 +68,8 @@ CC_WorldSpawn();
 	{
 		c_max = FL_INWATER;
 	}
-	
+// NOTE: C_max is merely the float for max cameras. If its destructive to your mod to alter teamplay,
+// sugguest making c_max half the number of max clients as a guideline to get started.
 ----------------------------------------------------------------------------
 *world.qc END*
 ----------------------------------------------------------------------------	
